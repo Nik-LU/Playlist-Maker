@@ -1,0 +1,16 @@
+<resources>
+    <!-- Из первого экрана -->
+    <dimen name="padding_horizontal">16dp</dimen>
+    <dimen name="padding_vertical_large">24dp</dimen>
+    <dimen name="icon_padding">8dp</dimen>
+    <dimen name="button_corner_radius">12dp</dimen>
+    <dimen name="padding_vertical_small">16dp</dimen>
+    <dimen name="text_title_size">24sp</dimen> <!-- Общий для заголовков -->
+
+    <!-- Новые размеры для экрана "Настройки" -->
+    <dimen name="settings_item_height">61dp</dimen> <!-- Высота пунктов меню -->
+    <dimen name="settings_margin_bottom">4dp</dimen> <!-- Отступ между пунктами -->
+    <dimen name="settings_text_size">16sp</dimen> <!-- Размер текста в меню -->
+    <dimen name="settings_icon_size">24dp</dimen> <!-- Размер иконок -->
+    <dimen name="settings_padding_end">16dp</dimen> <!-- Отступ справа -->
+</resources>

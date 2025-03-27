@@ -1,5 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Цвета из первого экрана -->
+    <color name="primary_blue">#3772E7</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="icon_black">#FF000000</color>
+
+    <!-- Новые цвета для экрана "Настройки" -->
+    <color name="background_white">#FFFFFF</color> <!-- Для фона -->
+    <color name="text_black">#000000</color>     <!-- Для текста -->
 </resources>
