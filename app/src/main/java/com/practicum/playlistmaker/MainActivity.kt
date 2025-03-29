@@ -11,12 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Получаем ссылки на кнопки
-        val searchButton = findViewById<MaterialButton>(R.id.button1)
-        val libraryButton = findViewById<MaterialButton>(R.id.button2)
-        val settingsButton = findViewById<MaterialButton>(R.id.button3)
-
         // Способ 1: Анонимный класс для кнопки поиска
+        val searchButton = findViewById<MaterialButton>(R.id.searchButton)
         val searchButtonClickListener = object : View.OnClickListener {
             override fun onClick(v: View?) {
                 // Создаем Intent для перехода на SearchActivity
@@ -27,12 +23,14 @@ class MainActivity : AppCompatActivity() {
         searchButton.setOnClickListener(searchButtonClickListener)
 
         // Способ 2: Лямбда-выражение для кнопки медиатеки
+        val libraryButton = findViewById<MaterialButton>(R.id.libraryButton)
         libraryButton.setOnClickListener {
             // Переход на MediaActivity с использованием лямбды
             startActivity(Intent(this@MainActivity, MediaActivity::class.java))
         }
 
         // Кнопка настроек (оставляем Toast для примера или можно тоже заменить на переход)
+        val settingsButton = findViewById<MaterialButton>(R.id.settingsButton)
         settingsButton.setOnClickListener {
             startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
         }

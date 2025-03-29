@@ -4,22 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/primary_blue"
-    android:paddingLeft="@dimen/padding_horizontal"
-    android:paddingRight="@dimen/padding_horizontal">
+    android:background="@color/primary_blue">
 
-    <!-- Заголовок -->
+    <!-- Кнопка-заголовок (некликабельная) -->
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/header_height_new"
         android:text="@string/app_name"
+        android:textSize="@dimen/button_text_size"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_title_size"
-        android:maxLines="1"
-        android:ellipsize="end"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="@dimen/padding_vertical_large"
-        android:layout_marginBottom="@dimen/padding_vertical_large"/>
+        android:gravity="center_vertical|start"
+        android:paddingStart="@dimen/padding_horizontal"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="0dp"
+        android:includeFontPadding="false"/>
+
 
     <!-- Контейнер для кнопок -->
     <LinearLayout
@@ -27,16 +26,20 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:layout_marginHorizontal="@dimen/padding_horizontal"
-        android:layout_marginBottom="@dimen/padding_vertical_small">
+        android:paddingHorizontal="@dimen/padding_horizontal"
+        android:paddingBottom="@dimen/padding_vertical_extra_large"
+        android:layout_marginTop="@dimen/padding_vertical_large">
 
         <!-- Кнопка Поиск -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button1"
+            android:id="@+id/searchButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="@string/search_button"
+            android:textSize="@dimen/button_text_size"
+            android:minWidth="@dimen/search_button_text_width"
+            android:minHeight="@dimen/button_text_height"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
@@ -50,11 +53,14 @@
 
         <!-- Кнопка Медиатека -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button2"
+            android:id="@+id/libraryButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="@string/library_button"
+            android:textSize="@dimen/button_text_size"
+            android:minWidth="@dimen/library_button_text_width"
+            android:minHeight="@dimen/button_text_height"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
@@ -68,11 +74,14 @@
 
         <!-- Кнопка Настройки -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button3"
+            android:id="@+id/settingsButton"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="@string/settings_button"
+            android:textSize="@dimen/button_text_size"
+            android:minWidth="@dimen/settings_button_text_width"
+            android:minHeight="@dimen/button_text_height"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"

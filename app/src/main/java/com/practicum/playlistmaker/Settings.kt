@@ -10,11 +10,8 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        // Обработка клика по заголовку (кнопка назад)
         findViewById<TextView>(R.id.settingsTitle).setOnClickListener {
-            // Простой переход назад без флагов
-            startActivity(Intent(this, MainActivity::class.java))
-            finish() // Закрываем текущую активность
+            finish() // Просто закрываем текущую активность
         }
     }
 }

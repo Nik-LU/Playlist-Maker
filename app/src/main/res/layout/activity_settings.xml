@@ -6,34 +6,33 @@
     android:layout_height="match_parent"
     android:background="@color/background_white"
     android:orientation="vertical"
-    android:paddingStart="@dimen/padding_horizontal"
-    android:paddingEnd="@dimen/padding_horizontal">
+    android:paddingStart="0dp"
+    android:paddingEnd="0dp">
 
     <!-- Заголовок -->
+
     <TextView
         android:id="@+id/settingsTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
         android:text="@string/settings_title"
-        android:textSize="@dimen/text_title_size"
-        android:textStyle="bold"
+        android:textSize="@dimen/settings_title_text_size"
         android:textColor="@color/text_black"
         android:fontFamily="sans-serif"
         android:drawableStart="@drawable/ic_sback"
-        android:drawablePadding="@dimen/icon_padding"
-        android:gravity="center_vertical"
-        android:layout_marginBottom="@dimen/settings_margin_bottom"/>
+        android:drawablePadding="0dp"
+    android:gravity="center_vertical|start"
+    android:paddingStart="0dp"
+    android:layout_marginBottom="24dp"/>
 
-    <!-- Темная тема -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
-        android:layout_marginBottom="@dimen/settings_margin_bottom"
         android:background="?android:attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="0dp"
-        android:paddingEnd="@dimen/settings_padding_end">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <TextView
             android:layout_width="0dp"
@@ -41,9 +40,7 @@
             android:layout_weight="1"
             android:text="@string/dark_theme"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/settings_text_size"
-            android:paddingStart="0dp"/>
-
+            android:textSize="@dimen/settings_text_size"/>
 
         <Switch
             android:id="@+id/switchDarkTheme"
@@ -58,12 +55,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
-        android:layout_marginBottom="@dimen/settings_margin_bottom"
         android:background="?android:attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="0dp"
-        android:paddingEnd="@dimen/settings_padding_end">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <TextView
             android:layout_width="0dp"
@@ -71,8 +67,7 @@
             android:layout_weight="1"
             android:text="@string/share_app"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/settings_text_size"
-            android:paddingStart="0dp"/>
+            android:textSize="@dimen/settings_text_size"/>
 
         <ImageView
             android:layout_width="@dimen/settings_icon_size"
@@ -85,12 +80,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
-        android:layout_marginBottom="@dimen/settings_margin_bottom"
         android:background="?android:attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="0dp"
-        android:paddingEnd="@dimen/settings_padding_end">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <TextView
             android:layout_width="0dp"
@@ -98,8 +92,7 @@
             android:layout_weight="1"
             android:text="@string/support"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/settings_text_size"
-            android:paddingStart="0dp"/>
+            android:textSize="@dimen/settings_text_size"/>
 
         <ImageView
             android:layout_width="@dimen/settings_icon_size"
@@ -115,8 +108,8 @@
         android:background="?android:attr/selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="0dp"
-        android:paddingEnd="@dimen/settings_padding_end">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <TextView
             android:layout_width="0dp"
@@ -124,8 +117,7 @@
             android:layout_weight="1"
             android:text="@string/user_agreement"
             android:textColor="@color/text_black"
-            android:textSize="@dimen/settings_text_size"
-            android:paddingStart="0dp"/>
+            android:textSize="@dimen/settings_text_size"/>
 
         <ImageView
             android:layout_width="@dimen/settings_icon_size"
