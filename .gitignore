@@ -15,6 +15,10 @@
  *.apk
  output.json
 
+# Файлы локальных настроек
+*.lock
+*.bin
+
  # IntelliJ
  *.iml
  .idea/
