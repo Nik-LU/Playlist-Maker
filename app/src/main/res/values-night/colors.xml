@@ -1,0 +1,11 @@
+<resources>
+    <!-- Для иконок кнопок главного экрана -->
+    <color name="icon_black">#000000</color> <!-- Черные иконки на белых кнопках -->
+
+    <!-- Остальные цвета как были -->
+    <color name="primary_blue">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="background_white">#000000</color>
+    <color name="text_black">#FFFFFF</color>
+</resources>
