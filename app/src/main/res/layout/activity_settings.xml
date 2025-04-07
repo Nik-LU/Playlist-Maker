@@ -50,7 +50,8 @@
         style="@style/Widget.PlaylistMaker.Settings.Item"
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
-        android:layout_marginBottom="@dimen/settings_margin_bottom">
+        android:layout_marginBottom="@dimen/settings_margin_bottom"
+        android:onClick="onShareButtonClick">
 
         <TextView
             style="@style/TextAppearance.PlaylistMaker.Settings.ItemText"
@@ -71,7 +72,8 @@
         style="@style/Widget.PlaylistMaker.Settings.Item"
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
-        android:layout_marginBottom="@dimen/settings_margin_bottom">
+        android:layout_marginBottom="@dimen/settings_margin_bottom"
+        android:onClick="onSupportButtonClick">
 
         <TextView
             style="@style/TextAppearance.PlaylistMaker.Settings.ItemText"
@@ -91,7 +93,8 @@
     <LinearLayout
         style="@style/Widget.PlaylistMaker.Settings.Item"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/settings_item_height">
+        android:layout_height="@dimen/settings_item_height"
+        android:onClick="onAgreementClick">
 
         <TextView
             style="@style/TextAppearance.PlaylistMaker.Settings.ItemText"
