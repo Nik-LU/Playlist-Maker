@@ -9,4 +9,9 @@
 
     <!-- Добавляем недостающие -->
     <color name="divider_color">#1F000000</color> <!-- Полупрозрачный черный -->
+    <color name="gray">#9C9C9C</color>
+
+    <color name="search_field_light">#E6E8EB</color>
+    <color name="search_field_dark">#FFFFFF</color>
+    <color name="search_field_bg">#E6E8EB</color> <!-- Светло-серый -->
 </resources>

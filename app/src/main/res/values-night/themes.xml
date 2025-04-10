@@ -6,5 +6,8 @@
         <!-- Для экрана настроек -->
         <item name="android:textColorPrimary">@color/text_black</item> <!-- Белый текст -->
         <item name="android:textColorSecondary">@color/icon_black</item> <!-- Белые иконки -->
+
+
+
     </style>
 </resources>
