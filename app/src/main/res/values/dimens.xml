@@ -1,0 +1,41 @@
+<resources>
+    <!-- Базовые отступы -->
+    <dimen name="padding_horizontal">16dp</dimen>
+    <dimen name="padding_vertical_large">24dp</dimen>
+    <dimen name="padding_vertical_small">16dp</dimen>
+    <dimen name="padding_vertical_extra_large">28dp</dimen>
+
+    <!-- Размеры текста -->
+    <dimen name="text_title_size">24sp</dimen>
+    <dimen name="button_text_size">22sp</dimen>
+
+    <!-- Высоты элементов -->
+    <dimen name="header_height_new">56dp</dimen>
+    <dimen name="button_text_height">26dp</dimen>
+
+    <!-- Размеры иконок -->
+    <dimen name="icon_padding">8dp</dimen>
+    <dimen name="settings_icon_size">24dp</dimen>
+
+    <!-- Скругления -->
+    <dimen name="button_corner_radius">12dp</dimen>
+
+    <!-- Ширины текста -->
+    <dimen name="search_button_text_width">62dp</dimen>
+    <dimen name="library_button_text_width">111dp</dimen>
+    <dimen name="settings_button_text_width">110dp</dimen>
+    <dimen name="header_width">134dp</dimen>
+
+    <!-- Дополнительные отступы -->
+    <dimen name="header_margin_start">10dp</dimen>
+    <dimen name="header_max_width">200dp</dimen>
+
+    <!-- !!! размеры для экрана "Настройки" -->
+    <dimen name="settings_item_height">61dp</dimen> <!-- Высота пунктов меню -->
+    <dimen name="settings_margin_bottom">4dp</dimen> <!-- Отступ между пунктами -->
+    <dimen name="settings_text_size">16sp</dimen> <!-- Размер текста в меню -->
+
+    <dimen name="settings_padding_end">16dp</dimen> <!-- Отступ справа -->
+    <dimen name="settings_title_text_size">22sp</dimen>
+    <dimen name="settings_title_height">26dp</dimen>
+</resources>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_white"
+    android:orientation="vertical"
+    android:paddingStart="0dp"
+    android:paddingEnd="0dp">
+
+    <!-- Заголовок -->
+    <TextView
+        android:id="@+id/settingsTitle"
+        style="@style/TextAppearance.PlaylistMaker.Settings.Title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/settings_item_height"
+        android:text="@string/settings_title"
+        android:drawableStart="@drawable/ic_sback"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical|start"
+        android:paddingStart="0dp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Темная тема -->
+    <LinearLayout
+        style="@style/Widget.PlaylistMaker.Settings.Item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/settings_item_height"
+        android:layout_marginBottom="@dimen/settings_margin_bottom">
+
+        <TextView
+            style="@style/TextAppearance.PlaylistMaker.Settings.ItemText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/dark_theme"/>
+
+        <Switch
+            android:id="@+id/switchDarkTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            android:padding="6dp"/>
+    </LinearLayout>
+
+    <!-- Поделиться приложением -->
+    <LinearLayout
+        style="@style/Widget.PlaylistMaker.Settings.Item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/settings_item_height"
+        android:layout_marginBottom="@dimen/settings_margin_bottom"
+        android:onClick="onShareButtonClick">
+
+        <TextView
+            style="@style/TextAppearance.PlaylistMaker.Settings.ItemText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/share_app"/>
+
+        <ImageView
+            android:layout_width="@dimen/settings_icon_size"
+            android:layout_height="@dimen/settings_icon_size"
+            android:src="@drawable/ic_share"
+            tools:ignore="ContentDescription"/>
+    </LinearLayout>
+
+    <!-- Написать в поддержку -->
+    <LinearLayout
+        style="@style/Widget.PlaylistMaker.Settings.Item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/settings_item_height"
+        android:layout_marginBottom="@dimen/settings_margin_bottom"
+        android:onClick="onSupportButtonClick">
+
+        <TextView
+            style="@style/TextAppearance.PlaylistMaker.Settings.ItemText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/support"/>
+
+        <ImageView
+            android:layout_width="@dimen/settings_icon_size"
+            android:layout_height="@dimen/settings_icon_size"
+            android:src="@drawable/ic_write"
+            tools:ignore="ContentDescription"/>
+    </LinearLayout>
+
+    <!-- Пользовательское соглашение -->
+    <LinearLayout
+        style="@style/Widget.PlaylistMaker.Settings.Item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/settings_item_height"
+        android:onClick="onAgreementClick">
+
+        <TextView
+            style="@style/TextAppearance.PlaylistMaker.Settings.ItemText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/user_agreement"/>
+
+        <ImageView
+            android:layout_width="@dimen/settings_icon_size"
+            android:layout_height="@dimen/settings_icon_size"
+            android:src="@drawable/ic_agreement"
+            tools:ignore="ContentDescription"/>
+    </LinearLayout>
+</LinearLayout>
