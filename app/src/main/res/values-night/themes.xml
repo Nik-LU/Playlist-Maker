@@ -1,13 +1,7 @@
-<resources>
-    <style name="Theme.PlaylistMaker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Для главного экрана -->
-        <item name="android:windowBackground">@color/background_white</item> <!-- Черный фон -->
-
-        <!-- Для экрана настроек -->
-        <item name="android:textColorPrimary">@color/text_black</item> <!-- Белый текст -->
-        <item name="android:textColorSecondary">@color/icon_black</item> <!-- Белые иконки -->
-
-
-
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.PlaylistMaker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
 </resources>
