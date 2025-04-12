@@ -1,0 +1,61 @@
+<resources>
+    <!-- ========== БАЗОВЫЕ СТИЛИ ШРИФТОВ ========== -->
+    <style name="TextAppearance.PlaylistMaker.YSDisplay.Medium" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+    </style>
+
+    <style name="TextAppearance.PlaylistMaker.YSDisplay.Regular" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:fontFamily">@font/ys_display_regular</item>
+    </style>
+
+    <!-- ========== ГЛАВНЫЙ ЭКРАН ========== -->
+    <style name="TextAppearance.PlaylistMaker.Header" parent="TextAppearance.PlaylistMaker.YSDisplay.Medium">
+        <item name="android:textSize">@dimen/text_title_size</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center_vertical|start</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Widget.PlaylistMaker.Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="android:fontFamily">@font/ys_display_medium</item>
+        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minHeight">@dimen/button_text_height</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="cornerRadius">@dimen/button_corner_radius</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">@dimen/icon_padding</item>
+        <item name="iconTint">@color/icon_black</item>
+    </style>
+
+    <!-- ========== ЭКРАН НАСТРОЕК ========== -->
+    <style name="TextAppearance.PlaylistMaker.Settings.Title" parent="TextAppearance.PlaylistMaker.YSDisplay.Medium">
+        <item name="android:textSize">@dimen/settings_title_text_size</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="TextAppearance.PlaylistMaker.Settings.ItemText" parent="TextAppearance.PlaylistMaker.YSDisplay.Regular">
+        <item name="android:textSize">@dimen/settings_text_size</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="Widget.PlaylistMaker.Settings.Item" parent="android:Widget">
+        <item name="android:layout_height">@dimen/settings_item_height</item>
+        <item name="android:background">?android:attr/selectableItemBackground</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+    </style>
+
+    <!-- ========== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ========== -->
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider_color</item>
+    </style>
+
+
+
+</resources>
