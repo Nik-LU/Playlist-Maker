@@ -23,5 +23,7 @@
 
     <string name="offer_url">https://yandex.ru/legal/practicum_offer/</string>
 
+    <string name="email_app_not_found">Установите почтовое приложение</string>
+    <string name="browser_not_found">Браузер не найден</string>
 
 </resources>

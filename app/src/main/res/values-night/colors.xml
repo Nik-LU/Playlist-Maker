@@ -9,4 +9,12 @@
     <color name="background_white">#000000</color>
     <color name="text_black">#FFFFFF</color>
     <color name="search_field_bg">#FFFFFF</color> <!-- Белый -->
+
+
+
+    <color name="icon_back">#FFFFFFFF</color> <!-- Белый для тёмной темы -->
+
+    <color name="icon_search">#FF000000</color>
+
+    <color name="search_hint">#FF000000</color> <!-- Чёрный для тёмной темы -->
 </resources>

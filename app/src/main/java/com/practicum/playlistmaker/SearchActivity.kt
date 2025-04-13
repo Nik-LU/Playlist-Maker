@@ -12,6 +12,10 @@ import androidx.appcompat.app.AppCompatActivity
 
 class SearchActivity : AppCompatActivity() {
 
+    companion object {
+        private const val SAVED_TEXT_KEY = "SAVED_TEXT"
+    }
+
     private lateinit var searchEditText: EditText
     private lateinit var clearButton: ImageButton
     private var currentSearchText = "" // Переменная для сохранения текста
@@ -61,13 +65,13 @@ class SearchActivity : AppCompatActivity() {
     // Сохранение состояния перед поворотом экрана
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString("SAVED_TEXT", currentSearchText)
+        outState.putString(SAVED_TEXT_KEY, currentSearchText)
     }
 
     // Восстановление состояния после поворота экрана
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        currentSearchText = savedInstanceState.getString("SAVED_TEXT", "")
+        currentSearchText = savedInstanceState.getString(SAVED_TEXT_KEY, "")
         searchEditText.setText(currentSearchText)
     }
 

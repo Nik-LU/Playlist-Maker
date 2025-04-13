@@ -43,7 +43,7 @@ class SettingsActivity : AppCompatActivity() {
         try {
             startActivity(emailIntent)
         } catch (e: ActivityNotFoundException) {
-            Toast.makeText(this, "Установите почтовое приложение", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.email_app_not_found), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -56,7 +56,7 @@ class SettingsActivity : AppCompatActivity() {
         try {
             startActivity(agreementIntent)
         } catch (e: ActivityNotFoundException) {
-            Toast.makeText(this, "Браузер не найден", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.browser_not_found), Toast.LENGTH_SHORT).show()
         }
     }
 }

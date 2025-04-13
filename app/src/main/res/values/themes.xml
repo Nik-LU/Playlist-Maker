@@ -17,6 +17,7 @@
         <item name="android:textColorPrimary">@color/text_black</item>
         <item name="android:textColorSecondary">@color/icon_black</item>
 
+        <item name="materialButtonStyle">@style/Widget.PlaylistMaker.Button.Primary</item>
 
     </style>
 

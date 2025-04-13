@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,16 +22,18 @@
         android:paddingStart="16dp"
         android:layout_marginBottom="24dp"/>
 
-    <!-- Контейнер строки поиска -->
-    <FrameLayout
+    <!-- Контейнер строки поиска  -->
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/searchContainer"
-        android:layout_width="328dp"
+        android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_gravity="center_horizontal"
-        android:background="@color/search_field_bg"
-        android:clipToOutline="true">
+        app:cardBackgroundColor="@color/search_field_bg"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp">
 
         <!-- Иконка поиска -->
         <ImageView
@@ -39,7 +42,8 @@
             android:layout_gravity="start|center_vertical"
             android:layout_marginStart="12dp"
             android:src="@drawable/ic_search"
-            android:contentDescription="@string/search_button"/>
+            android:contentDescription="@string/search_button"
+            app:tint="@color/icon_search" />
 
         <!-- Поле ввода -->
         <EditText
@@ -53,7 +57,7 @@
             android:paddingStart="48dp"
             android:paddingEnd="40dp"
             android:textColor="@color/text_black"
-            android:textColorHint="@color/gray"/>
+            android:textColorHint="@color/search_hint"/>
 
         <!-- Кнопка очистки -->
         <ImageButton
@@ -62,8 +66,9 @@
             android:layout_height="24dp"
             android:layout_gravity="end|center_vertical"
             android:layout_marginEnd="12dp"
-            android:src="@android:drawable/ic_delete"
+            android:src="@drawable/ic_cross"
             android:visibility="gone"
-            android:background="?attr/selectableItemBackgroundBorderless"/>
-    </FrameLayout>
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/icon_search" />
+    </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

@@ -14,4 +14,10 @@
     <color name="search_field_light">#E6E8EB</color>
     <color name="search_field_dark">#FFFFFF</color>
     <color name="search_field_bg">#E6E8EB</color> <!-- Светло-серый -->
+
+    <color name="icon_back">#FF000000</color> <!-- Чёрный для светлой темы -->
+
+    <color name="icon_search">#AEAFB4</color>
+
+    <color name="search_hint">#818C99</color> <!-- Серый для светлой темы -->
 </resources>
