@@ -10,37 +10,31 @@
     android:paddingEnd="0dp">
 
     <!-- Заголовок -->
-
     <TextView
         android:id="@+id/settingsTitle"
+        style="@style/TextAppearance.PlaylistMaker.Settings.Title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
         android:text="@string/settings_title"
-        android:textSize="@dimen/settings_title_text_size"
-        android:textColor="@color/text_black"
-        android:fontFamily="sans-serif"
         android:drawableStart="@drawable/ic_sback"
-        android:drawablePadding="0dp"
-    android:gravity="center_vertical|start"
-    android:paddingStart="0dp"
-    android:layout_marginBottom="24dp"/>
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical|start"
+        android:paddingStart="0dp"
+        android:layout_marginBottom="24dp"/>
 
+    <!-- Темная тема -->
     <LinearLayout
+        style="@style/Widget.PlaylistMaker.Settings.Item"
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
-        android:background="?android:attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:layout_marginBottom="@dimen/settings_margin_bottom">
 
         <TextView
+            style="@style/TextAppearance.PlaylistMaker.Settings.ItemText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/dark_theme"
-            android:textColor="@color/text_black"
-            android:textSize="@dimen/settings_text_size"/>
+            android:text="@string/dark_theme"/>
 
         <Switch
             android:id="@+id/switchDarkTheme"
@@ -48,26 +42,23 @@
             android:layout_height="wrap_content"
             android:minWidth="48dp"
             android:minHeight="48dp"
-            android:padding="12dp"/>
+            android:padding="6dp"/>
     </LinearLayout>
 
     <!-- Поделиться приложением -->
     <LinearLayout
+        style="@style/Widget.PlaylistMaker.Settings.Item"
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
-        android:background="?android:attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:layout_marginBottom="@dimen/settings_margin_bottom"
+        android:onClick="onShareButtonClick">
 
         <TextView
+            style="@style/TextAppearance.PlaylistMaker.Settings.ItemText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/share_app"
-            android:textColor="@color/text_black"
-            android:textSize="@dimen/settings_text_size"/>
+            android:text="@string/share_app"/>
 
         <ImageView
             android:layout_width="@dimen/settings_icon_size"
@@ -78,21 +69,18 @@
 
     <!-- Написать в поддержку -->
     <LinearLayout
+        style="@style/Widget.PlaylistMaker.Settings.Item"
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
-        android:background="?android:attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:layout_marginBottom="@dimen/settings_margin_bottom"
+        android:onClick="onSupportButtonClick">
 
         <TextView
+            style="@style/TextAppearance.PlaylistMaker.Settings.ItemText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/support"
-            android:textColor="@color/text_black"
-            android:textSize="@dimen/settings_text_size"/>
+            android:text="@string/support"/>
 
         <ImageView
             android:layout_width="@dimen/settings_icon_size"
@@ -103,21 +91,17 @@
 
     <!-- Пользовательское соглашение -->
     <LinearLayout
+        style="@style/Widget.PlaylistMaker.Settings.Item"
         android:layout_width="match_parent"
         android:layout_height="@dimen/settings_item_height"
-        android:background="?android:attr/selectableItemBackground"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:onClick="onAgreementClick">
 
         <TextView
+            style="@style/TextAppearance.PlaylistMaker.Settings.ItemText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/user_agreement"
-            android:textColor="@color/text_black"
-            android:textSize="@dimen/settings_text_size"/>
+            android:text="@string/user_agreement"/>
 
         <ImageView
             android:layout_width="@dimen/settings_icon_size"

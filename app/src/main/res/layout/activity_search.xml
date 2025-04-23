@@ -1,10 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchActivity">
+    android:background="@color/background_white"
+    android:orientation="vertical"
+    android:paddingStart="0dp"
+    android:paddingEnd="0dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Заголовок с кнопкой назад -->
+    <TextView
+        android:id="@+id/searchTitle"
+        style="@style/TextAppearance.PlaylistMaker.Settings.Title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/settings_item_height"
+        android:text="@string/search_button"
+        android:drawableStart="@drawable/ic_sback"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical|start"
+        android:paddingStart="16dp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Контейнер строки поиска  -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/searchContainer"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_gravity="center_horizontal"
+        app:cardBackgroundColor="@color/search_field_bg"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:strokeWidth="0dp">
+
+        <!-- Иконка поиска -->
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="12dp"
+            android:src="@drawable/ic_search"
+            android:contentDescription="@string/search_button"
+            app:tint="@color/icon_search" />
+
+        <!-- Поле ввода -->
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="@string/search_button"
+            android:inputType="text"
+            android:maxLines="1"
+            android:background="@null"
+            android:paddingStart="48dp"
+            android:paddingEnd="40dp"
+            android:textColor="@color/text_black"
+            android:textColorHint="@color/search_hint"/>
+
+        <!-- Кнопка очистки -->
+        <ImageButton
+            android:id="@+id/clearButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_cross"
+            android:visibility="gone"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/icon_search" />
+    </com.google.android.material.card.MaterialCardView>
+</LinearLayout>

@@ -1,11 +1,23 @@
 <resources>
-    <!-- Цвета из первого экрана -->
+    <!-- Существующие цвета -->
     <color name="primary_blue">#3772E7</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="icon_black">#FF000000</color>
+    <color name="background_white">#FFFFFF</color>
+    <color name="text_black">#000000</color>
 
-    <!-- Новые цвета для экрана "Настройки" -->
-    <color name="background_white">#FFFFFF</color> <!-- Для фона -->
-    <color name="text_black">#000000</color>     <!-- Для текста -->
+    <!-- Добавляем недостающие -->
+    <color name="divider_color">#1F000000</color> <!-- Полупрозрачный черный -->
+    <color name="gray">#9C9C9C</color>
+
+    <color name="search_field_light">#E6E8EB</color>
+    <color name="search_field_dark">#FFFFFF</color>
+    <color name="search_field_bg">#E6E8EB</color> <!-- Светло-серый -->
+
+    <color name="icon_back">#FF000000</color> <!-- Чёрный для светлой темы -->
+
+    <color name="icon_search">#AEAFB4</color>
+
+    <color name="search_hint">#818C99</color> <!-- Серый для светлой темы -->
 </resources>
