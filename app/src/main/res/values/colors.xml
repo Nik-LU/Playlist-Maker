@@ -20,4 +20,9 @@
     <color name="icon_search">#AEAFB4</color>
 
     <color name="search_hint">#818C99</color> <!-- Серый для светлой темы -->
+
+    <color name="text_gray">#808080</color>
+
+    <color name="placeholder_gray">#BDBDBD</color>
+    <color name="error_red">#FF5252</color>
 </resources>
