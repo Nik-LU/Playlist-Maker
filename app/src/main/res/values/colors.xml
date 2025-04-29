@@ -25,4 +25,9 @@
 
     <color name="placeholder_gray">#BDBDBD</color>
     <color name="error_red">#FF5252</color>
+
+    <color name="performer_and_time">#AEAFB4</color>
+
+    <color name="text_search">#000000</color>
+
 </resources>

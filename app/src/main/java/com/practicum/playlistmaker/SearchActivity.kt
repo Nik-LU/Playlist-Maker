@@ -1,7 +1,8 @@
-
 package com.practicum.playlistmaker
 
 import TrackAdapter
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,7 +14,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 
 class SearchActivity : AppCompatActivity() {
 
@@ -46,12 +46,13 @@ class SearchActivity : AppCompatActivity() {
 
         // Инициализация RecyclerView
         initRecyclerView()
+
+        // Первоначальная проверка сети
+        checkNetworkState()
     }
 
     private fun initRecyclerView() {
-        // Настройка менеджера расположения
         recyclerView.layoutManager = LinearLayoutManager(this)
-
         // Создаем тестовые данные
         val tracks = listOf(
             Track(
@@ -85,58 +86,63 @@ class SearchActivity : AppCompatActivity() {
                 "https://is5-ssl.mzstatic.com/image/thumb/Music125/v4/a0/4d/c4/a04dc484-03cc-02aa-fa82-5334fcb4bc16/18UMGIM24878.rgb.jpg/100x100bb.jpg"
             )
         )
-
-        // Инициализация адаптера
         adapter = TrackAdapter(tracks)
         recyclerView.adapter = adapter
-
-        // Оптимизация
         recyclerView.setHasFixedSize(true)
-    }
-
-    private fun setupSearchField() {
-        // TextWatcher для отслеживания ввода
-        searchEditText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                clearButton.visibility = if (s.isNullOrEmpty()) View.GONE else View.VISIBLE
-                currentSearchText = s?.toString() ?: ""
-            }
-
-            override fun afterTextChanged(s: Editable?) {}
-        })
-
-        // Обработчик клика на кнопку очистки
-        clearButton.setOnClickListener {
-            searchEditText.text.clear()
-            currentSearchText = ""
-            hideKeyboard()
         }
 
-        // Фокус на поле ввода при открытии
-        searchEditText.requestFocus()
-        showKeyboard()
-    }
+        private fun checkNetworkState() {
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetwork = connectivityManager.activeNetworkInfo
+            val isConnected = activeNetwork?.isConnectedOrConnecting == true
+            adapter.setNetworkAvailable(isConnected)
+        }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putString(SAVED_TEXT_KEY, currentSearchText)
-    }
+        private fun setupSearchField() {
+            searchEditText.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-        currentSearchText = savedInstanceState.getString(SAVED_TEXT_KEY, "")
-        searchEditText.setText(currentSearchText)
-    }
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    clearButton.visibility = if (s.isNullOrEmpty()) View.GONE else View.VISIBLE
+                    currentSearchText = s?.toString() ?: ""
+                }
 
-    private fun showKeyboard() {
-        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.showSoftInput(searchEditText, InputMethodManager.SHOW_IMPLICIT)
-    }
+                override fun afterTextChanged(s: Editable?) {}
+            })
 
-    private fun hideKeyboard() {
-        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(searchEditText.windowToken, 0)
-    }
-}
+            clearButton.setOnClickListener {
+                searchEditText.text.clear()
+                currentSearchText = ""
+                hideKeyboard()
+            }
+
+            searchEditText.requestFocus()
+            showKeyboard()
+        }
+
+        override fun onResume() {
+            super.onResume()
+            checkNetworkState() // Проверяем сеть при возвращении на экран
+        }
+
+        override fun onSaveInstanceState(outState: Bundle) {
+            super.onSaveInstanceState(outState)
+            outState.putString(SAVED_TEXT_KEY, currentSearchText)
+        }
+
+        override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+            super.onRestoreInstanceState(savedInstanceState)
+            currentSearchText = savedInstanceState.getString(SAVED_TEXT_KEY, "")
+            searchEditText.setText(currentSearchText)
+        }
+
+        private fun showKeyboard() {
+            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(searchEditText, InputMethodManager.SHOW_IMPLICIT)
+        }
+
+        private fun hideKeyboard() {
+            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(searchEditText.windowToken, 0)
+        }
+        }
