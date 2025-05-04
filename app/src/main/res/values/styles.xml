@@ -58,5 +58,20 @@
     </style>
 
 
+    <style name="TextAppearance.TrackTitle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/ys_text_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:includeFontPadding">false</item>  <!-- Ключевой параметр -->
+        <item name="android:lineSpacingExtra">0dp</item>
+    </style>
+
+    <style name="TextAppearance.TrackSubtitle" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/ys_text_regular</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/performer_and_time</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:lineSpacingExtra">0dp</item>
+    </style>
 
 </resources>

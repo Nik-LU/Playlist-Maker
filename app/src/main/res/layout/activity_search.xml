@@ -17,30 +17,30 @@
         android:layout_height="@dimen/settings_item_height"
         android:text="@string/search_button"
         android:drawableStart="@drawable/ic_sback"
-        android:drawablePadding="8dp"
+        android:drawablePadding="@dimen/search_drawable_padding"
         android:gravity="center_vertical|start"
-        android:paddingStart="16dp"
-        android:layout_marginBottom="24dp"/>
+        android:paddingStart="@dimen/padding_horizontal"
+        android:layout_marginBottom="@dimen/padding_vertical_extra_large"/>
 
-    <!-- Контейнер строки поиска  -->
+    <!-- Контейнер строки поиска -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/searchContainer"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="@dimen/search_field_height"
+        android:layout_marginStart="@dimen/search_field_margin_horizontal"
+        android:layout_marginEnd="@dimen/search_field_margin_horizontal"
         android:layout_gravity="center_horizontal"
         app:cardBackgroundColor="@color/search_field_bg"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="@dimen/search_field_corner_radius"
         app:cardElevation="0dp"
         app:strokeWidth="0dp">
 
         <!-- Иконка поиска -->
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/settings_icon_size"
+            android:layout_height="@dimen/settings_icon_size"
             android:layout_gravity="start|center_vertical"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="@dimen/search_icon_margin"
             android:src="@drawable/ic_search"
             android:contentDescription="@string/search_button"
             app:tint="@color/icon_search" />
@@ -49,26 +49,38 @@
         <EditText
             android:id="@+id/searchEditText"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="@dimen/search_field_height"
             android:hint="@string/search_button"
             android:inputType="text"
             android:maxLines="1"
             android:background="@null"
-            android:paddingStart="48dp"
-            android:paddingEnd="40dp"
-            android:textColor="@color/text_black"
+            android:paddingStart="@dimen/search_text_padding_start"
+            android:paddingEnd="@dimen/search_text_padding_end"
+            android:textColor="@color/text_search"
             android:textColorHint="@color/search_hint"/>
 
         <!-- Кнопка очистки -->
         <ImageButton
             android:id="@+id/clearButton"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="@dimen/settings_icon_size"
+            android:layout_height="@dimen/settings_icon_size"
             android:layout_gravity="end|center_vertical"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="@dimen/search_icon_margin"
             android:src="@drawable/ic_cross"
             android:visibility="gone"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:tint="@color/icon_search" />
     </com.google.android.material.card.MaterialCardView>
+
+    <!-- RecyclerView для списка треков -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tracksRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/recycler_margin_top"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingBottom="@dimen/recycler_padding_bottom"
+        tools:listitem="@layout/item_track" />
 </LinearLayout>

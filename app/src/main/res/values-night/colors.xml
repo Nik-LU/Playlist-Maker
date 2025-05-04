@@ -17,4 +17,10 @@
     <color name="icon_search">#FF000000</color>
 
     <color name="search_hint">#FF000000</color> <!-- Чёрный для тёмной темы -->
+
+    <color name="text_gray">#A0A0A0</color>
+
+    <color name="performer_and_time">#FFFFFF</color>
+
+    <color name="text_search">#000000</color>
 </resources>
