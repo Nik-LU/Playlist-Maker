@@ -26,8 +26,16 @@
     <string name="email_app_not_found">Установите почтовое приложение</string>
     <string name="browser_not_found">Браузер не найден</string>
 
-
+    <string name="track_cover_description">Обложка трека %1$s исполнителя %2$s</string>
     <string name="track_cover">Обложка трека</string>
 
     <string name="agreement_icon_desc">Agreement icon</string>
+
+    <string name="nothing_found">Ничего не найдено</string>
+    <string name="server_error">Ошибка сервера</string>
+    <string name="network_error">Нет подключения к интернету</string>
+
+    <string name="loading">Идет поиск...</string>
+    <string name="retry">Повторить</string>
+
 </resources>

@@ -1,53 +1,64 @@
-import androidx.recyclerview.widget.RecyclerView
+package com.practicum.playlistmaker
+
+import Track
 import android.view.ViewGroup
-import android.view.LayoutInflater
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.practicum.playlistmaker.R
-import com.practicum.playlistmaker.Track
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import android.view.LayoutInflater
+import android.view.View
+import java.util.Locale
 
-class TrackAdapter(private val tracks: List<Track>) :
-    RecyclerView.Adapter<TrackAdapter.TrackViewHolder>() {
+class TrackAdapter(
+    private var tracks: List<Track>, // Изменили на var
+    private val onItemClick: (Track) -> Unit
+) : RecyclerView.Adapter<TrackAdapter.TrackViewHolder>() {
 
-    // Флаг доступности сети (по умолчанию true - интернет есть)
     private var isNetworkAvailable: Boolean = true
 
-    // Метод для обновления состояния сети
     fun setNetworkAvailable(available: Boolean) {
         if (isNetworkAvailable != available) {
             isNetworkAvailable = available
-            notifyDataSetChanged() // Обновляем список
+            notifyDataSetChanged()
         }
     }
 
+    fun updateTracks(newTracks: List<Track>) {
+        tracks = newTracks
+        notifyDataSetChanged()
+    }
+
     inner class TrackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val trackName = itemView.findViewById<TextView>(R.id.trackName)
-        private val artistAndTime = itemView.findViewById<TextView>(R.id.artistAndTime)
-        private val trackCover = itemView.findViewById<ImageView>(R.id.trackCover)
-        private val agreementIcon = itemView.findViewById<ImageView>(R.id.agreementIcon)
+        private val trackName: TextView = itemView.findViewById(R.id.trackName)
+        private val artistAndTime: TextView = itemView.findViewById(R.id.artistAndTime)
+        private val trackCover: ImageView = itemView.findViewById(R.id.trackCover)
+        private val agreementIcon: ImageView = itemView.findViewById(R.id.agreementIcon)
 
         fun bind(track: Track) {
-            // Устанавливаем текст
             trackName.text = track.trackName
-            artistAndTime.text = "${track.artistName} • ${track.trackTime}"
+            artistAndTime.text = String.format(
+                Locale.getDefault(),
+                "%s • %s",
+                track.artistName,
+                track.getFormattedTime()
+            )
 
-            // Фиксированная иконка соглашения
             agreementIcon.setImageResource(R.drawable.ic_agreement)
 
-            // Управление отображением обложки
             if (isNetworkAvailable) {
-                // Загружаем обложку через Glide при наличии интернета
                 Glide.with(itemView)
                     .load(track.artworkUrl100)
                     .placeholder(R.drawable.ic_placeholder)
-                    .centerCrop()
+                    .error(R.drawable.ic_placeholder)
+                    .transform(RoundedCorners(itemView.resources.getDimensionPixelSize(R.dimen.track_corner_radius)))
                     .into(trackCover)
             } else {
-                // Показываем только плейсхолдер при отсутствии интернета
                 trackCover.setImageResource(R.drawable.ic_placeholder)
             }
+
+            itemView.setOnClickListener { onItemClick(track) }
         }
     }
 
