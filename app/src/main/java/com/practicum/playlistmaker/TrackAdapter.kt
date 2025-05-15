@@ -9,10 +9,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import android.view.LayoutInflater
 import android.view.View
-import java.util.Locale
 
 class TrackAdapter(
-    private var tracks: List<Track>, // Изменили на var
+    private var tracks: List<Track>,
     private val onItemClick: (Track) -> Unit
 ) : RecyclerView.Adapter<TrackAdapter.TrackViewHolder>() {
 
@@ -32,18 +31,17 @@ class TrackAdapter(
 
     inner class TrackViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val trackName: TextView = itemView.findViewById(R.id.trackName)
-        private val artistAndTime: TextView = itemView.findViewById(R.id.artistAndTime)
+        private val artistName: TextView = itemView.findViewById(R.id.artistName)
+        private val timeSeparator: TextView = itemView.findViewById(R.id.timeSeparator)
+        private val trackTime: TextView = itemView.findViewById(R.id.trackTime)
         private val trackCover: ImageView = itemView.findViewById(R.id.trackCover)
         private val agreementIcon: ImageView = itemView.findViewById(R.id.agreementIcon)
 
         fun bind(track: Track) {
             trackName.text = track.trackName
-            artistAndTime.text = String.format(
-                Locale.getDefault(),
-                "%s • %s",
-                track.artistName,
-                track.getFormattedTime()
-            )
+            artistName.text = track.artistName
+            timeSeparator.text = "•"
+            trackTime.text = track.getFormattedTime()
 
             agreementIcon.setImageResource(R.drawable.ic_agreement)
 

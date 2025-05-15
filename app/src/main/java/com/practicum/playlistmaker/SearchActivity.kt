@@ -15,6 +15,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
@@ -96,7 +97,7 @@ class SearchActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val tracks = response.body()?.results ?: emptyList()
                     if (tracks.isNotEmpty()) {
-                        adapter.updateTracks(tracks) // Используем метод updateTracks
+                        adapter.updateTracks(tracks)
                         showPlaceholder(false)
                     } else {
                         showPlaceholder(true, R.string.nothing_found)
@@ -114,25 +115,26 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun showLoading(show: Boolean) {
-        if (show) {
-            recyclerView.visibility = View.GONE
-            placeholderGroup.visibility = View.VISIBLE
-            placeholderIcon.setImageResource(R.drawable.ic_placeholder)
-            placeholderText.setText(R.string.loading)
-            retryButton.visibility = View.GONE
-        }
+        recyclerView.isVisible = !show
+        searchEditText.isEnabled = !show
     }
 
     private fun showPlaceholder(show: Boolean, messageRes: Int? = null, showRetry: Boolean = false) {
         if (show) {
-            recyclerView.visibility = View.GONE
-            placeholderGroup.visibility = View.VISIBLE
+            recyclerView.isVisible = false
+            placeholderGroup.isVisible = true
             messageRes?.let { placeholderText.setText(it) }
-            placeholderIcon.setImageResource(R.drawable.ic_placeholder)
-            retryButton.visibility = if (showRetry) View.VISIBLE else View.GONE
+
+            // Устанавливаем соответствующую иконку
+            when (messageRes) {
+                R.string.nothing_found -> placeholderIcon.setImageResource(R.drawable.ic_no_search)
+                else -> placeholderIcon.setImageResource(R.drawable.ic_no_network)
+            }
+
+            retryButton.isVisible = showRetry
         } else {
-            placeholderGroup.visibility = View.GONE
-            recyclerView.visibility = View.VISIBLE
+            placeholderGroup.isVisible = false
+            recyclerView.isVisible = true
         }
     }
 
@@ -152,7 +154,7 @@ class SearchActivity : AppCompatActivity() {
             addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    clearButton.visibility = if (s.isNullOrEmpty()) View.GONE else View.VISIBLE
+                    clearButton.isVisible = !s.isNullOrEmpty()
                     currentSearchText = s?.toString() ?: ""
                 }
                 override fun afterTextChanged(s: Editable?) {}

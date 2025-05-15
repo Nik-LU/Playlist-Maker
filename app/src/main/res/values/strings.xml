@@ -31,11 +31,11 @@
 
     <string name="agreement_icon_desc">Agreement icon</string>
 
-    <string name="nothing_found">Ничего не найдено</string>
+    <string name="nothing_found">Ничего не нашлось</string>
     <string name="server_error">Ошибка сервера</string>
-    <string name="network_error">Нет подключения к интернету</string>
+    <string name="network_error">Проблемы со связью\n\nЗагрузка не удалась. Проверьте\n подключение к интернету </string>
 
     <string name="loading">Идет поиск...</string>
-    <string name="retry">Повторить</string>
+    <string name="retry">Обновить</string>
 
 </resources>

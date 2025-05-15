@@ -23,4 +23,8 @@
     <color name="performer_and_time">#FFFFFF</color>
 
     <color name="text_search">#000000</color>
+
+    <color name="black_white">#FFFFFF</color>
+
+    <color name="white_black">#000000</color>
 </resources>
