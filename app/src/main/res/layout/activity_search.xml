@@ -72,6 +72,47 @@
             app:tint="@color/icon_search" />
     </com.google.android.material.card.MaterialCardView>
 
+    <!-- Плейсхолдер (показывается при загрузке/ошибках) -->
+    <FrameLayout
+        android:id="@+id/placeholderGroup"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_horizontal">
+
+        <ImageView
+            android:id="@+id/placeholderIcon"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="210dp"
+            tools:src="@drawable/ic_placeholder" />
+
+        <TextView
+            android:id="@+id/placeholderText"
+            style="@style/TextAppearance.NoResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="346dp"
+            android:textAlignment="center"
+            tools:text="Ничего не найдено" />
+
+        <Button
+            android:id="@+id/retryButton"
+            style="@style/Button.RetryText"
+            android:layout_width="91dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal"
+            android:paddingHorizontal="4dp"
+            android:layout_marginTop="458dp"
+            android:text="@string/retry"
+            android:visibility="gone" />
+    </FrameLayout>
+
     <!-- RecyclerView для списка треков -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tracksRecyclerView"

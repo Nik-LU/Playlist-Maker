@@ -1,12 +1,12 @@
 <resources>
     <!-- Для иконок кнопок главного экрана -->
-    <color name="icon_black">#000000</color> <!-- Черные иконки на белых кнопках -->
+    <color name="icon_black">#1A1B22</color> <!-- Черные иконки на белых кнопках -->
 
     <!-- Остальные цвета как были -->
-    <color name="primary_blue">#000000</color>
+    <color name="primary_blue">#1A1B22</color>
     <color name="white">#FFFFFF</color>
-    <color name="black">#000000</color>
-    <color name="background_white">#000000</color>
+    <color name="black">#1A1B22</color>
+    <color name="background_white">#1A1B22</color>
     <color name="text_black">#FFFFFF</color>
     <color name="search_field_bg">#FFFFFF</color> <!-- Белый -->
 
@@ -14,13 +14,17 @@
 
     <color name="icon_back">#FFFFFFFF</color> <!-- Белый для тёмной темы -->
 
-    <color name="icon_search">#FF000000</color>
+    <color name="icon_search">#1A1B22</color>
 
-    <color name="search_hint">#FF000000</color> <!-- Чёрный для тёмной темы -->
+    <color name="search_hint">#1A1B22</color> <!-- Чёрный для тёмной темы -->
 
     <color name="text_gray">#A0A0A0</color>
 
     <color name="performer_and_time">#FFFFFF</color>
 
-    <color name="text_search">#000000</color>
+    <color name="text_search">#1A1B22</color>
+
+    <color name="black_white">#FFFFFF</color>
+
+    <color name="white_black">#1A1B22</color>
 </resources>

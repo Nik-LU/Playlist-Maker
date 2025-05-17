@@ -38,17 +38,43 @@
             android:ellipsize="end"
             android:includeFontPadding="false"/>
 
-        <!-- Совмещённые исполнитель и время -->
-        <TextView
-            android:id="@+id/artistAndTime"
-            style="@style/TextAppearance.TrackSubtitle"
+        <!-- Разделённые исполнитель, разделитель и время -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:minHeight="@dimen/track_artist_min_height"
-            android:gravity="start|center_vertical"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:includeFontPadding="false"/>
+            android:gravity="center_vertical">
+
+            <!-- Исполнитель -->
+            <TextView
+                android:id="@+id/artistName"
+                style="@style/TextAppearance.TrackSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:includeFontPadding="false"/>
+
+            <!-- Разделитель -->
+            <TextView
+                android:id="@+id/timeSeparator"
+                style="@style/TextAppearance.TrackSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" • "
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:includeFontPadding="false"/>
+
+            <!-- Время трека -->
+            <TextView
+                android:id="@+id/trackTime"
+                style="@style/TextAppearance.TrackSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"/>
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Иконка соглашения -->
