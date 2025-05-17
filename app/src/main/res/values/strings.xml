@@ -38,4 +38,7 @@
     <string name="loading">Идет поиск...</string>
     <string name="retry">Обновить</string>
 
+    <string name="search_history_title">Вы искали</string>
+    <string name="clear_history">Очистить историю</string>
+
 </resources>

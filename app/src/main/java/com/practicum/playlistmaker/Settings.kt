@@ -8,11 +8,20 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.switchmaterial.SwitchMaterial
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
+
+        // Инициализация переключателя темы
+        val themeSwitcher = findViewById<SwitchMaterial>(R.id.switchDarkTheme)
+        themeSwitcher.isChecked = (application as App).isDarkTheme()
+
+        themeSwitcher.setOnCheckedChangeListener { _, checked ->
+            (application as App).switchTheme(checked)
+        }
 
         findViewById<TextView>(R.id.settingsTitle).setOnClickListener {
             finish()
