@@ -14,19 +14,19 @@
         android:id="@+id/searchTitle"
         style="@style/TextAppearance.PlaylistMaker.Settings.Title"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/settings_item_height"
+        android:layout_height="@dimen/settings_item_height_2"
         android:text="@string/search_button"
         android:drawableStart="@drawable/ic_sback"
         android:drawablePadding="@dimen/search_drawable_padding"
         android:gravity="center_vertical|start"
         android:paddingStart="@dimen/padding_horizontal"
-        android:layout_marginBottom="@dimen/padding_vertical_extra_large"/>
+        android:layout_marginBottom="@dimen/settings_item_height_4"/>
 
     <!-- Контейнер строки поиска -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/searchContainer"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/search_field_height"
+        android:layout_height="@dimen/settings_item_height_3"
         android:layout_marginStart="@dimen/search_field_margin_horizontal"
         android:layout_marginEnd="@dimen/search_field_margin_horizontal"
         android:layout_gravity="center_horizontal"
@@ -48,16 +48,17 @@
         <!-- Поле ввода -->
         <EditText
             android:id="@+id/searchEditText"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/search_field_height"
+            android:layout_width="369dp"
+            android:layout_height="36dp"
+            tools:ignore="SmallSp,TouchTargetSizeCheck"
+            android:background="@null"
             android:hint="@string/search_button"
             android:inputType="text"
             android:maxLines="1"
-            android:background="@null"
             android:paddingStart="@dimen/search_text_padding_start"
             android:paddingEnd="@dimen/search_text_padding_end"
             android:textColor="@color/text_search"
-            android:textColorHint="@color/search_hint"/>
+            android:textColorHint="@color/search_hint" />
 
         <!-- Кнопка очистки -->
         <ImageButton
@@ -79,9 +80,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone"
-        android:paddingStart="@dimen/padding_horizontal"
-        android:paddingEnd="@dimen/padding_horizontal"
-        android:paddingTop="40dp">
+        android:paddingTop="36dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -106,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/history_button_top_margin"
-            android:layout_marginBottom="@dimen/padding_vertical_small"
+            android:layout_marginBottom="8dp"
             android:text="@string/clear_history"
             android:textColor="@color/white_black"/>
     </LinearLayout>

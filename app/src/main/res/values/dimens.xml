@@ -32,6 +32,9 @@
 
     <!-- !!! размеры для экрана "Настройки" -->
     <dimen name="settings_item_height">61dp</dimen> <!-- Высота пунктов меню -->
+    <dimen name="settings_item_height_2">56dp</dimen>
+    <dimen name="settings_item_height_3">36dp</dimen>
+    <dimen name="settings_item_height_4">8dp</dimen>
     <dimen name="settings_margin_bottom">4dp</dimen> <!-- Отступ между пунктами -->
     <dimen name="settings_text_size">16sp</dimen> <!-- Размер текста в меню -->
 

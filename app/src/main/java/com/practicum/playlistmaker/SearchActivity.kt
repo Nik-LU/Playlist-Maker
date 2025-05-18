@@ -126,7 +126,7 @@ class SearchActivity : AppCompatActivity() {
                     if (tracks.isNotEmpty()) {
                         adapter.updateTracks(tracks)
                         showPlaceholder(false)
-                        historyContainer.visibility = View.GONE
+                        historyContainer.isVisible = false
                     } else {
                         showPlaceholder(true, R.string.nothing_found)
                     }
@@ -147,7 +147,7 @@ class SearchActivity : AppCompatActivity() {
                 searchEditText.hasFocus() &&
                 searchHistory.getHistory().isNotEmpty()
 
-        historyContainer.visibility = if (shouldShowHistory) View.VISIBLE else View.GONE
+        historyContainer.isVisible = shouldShowHistory
 
         if (shouldShowHistory) {
             historyAdapter.updateTracks(searchHistory.getHistory())
