@@ -65,5 +65,5 @@
     <dimen name="recycler_padding_bottom">16dp</dimen>
     <dimen name="search_field_corner_radius">8dp</dimen>
 
-    <dimen name="history_button_top_margin">24dp</dimen>
+    <dimen name="history_button_top_margin">48dp</dimen>
 </resources>

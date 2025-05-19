@@ -74,28 +74,32 @@
     </com.google.android.material.card.MaterialCardView>
 
     <!-- Блок истории поиска -->
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/historyContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone"
-        android:paddingTop="36dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone">
 
         <TextView
+            android:id="@+id/historyTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/search_history_title"
             android:textSize="19sp"
             android:textColor="@color/black_white"
             android:gravity="center_horizontal"
-            android:fontFamily="@font/ys_text_medium"/>
+            android:fontFamily="@font/ys_text_medium"
+            android:layout_marginTop="36dp"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/historyRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginTop="@dimen/padding_vertical_small"
+            app:layout_constraintTop_toBottomOf="@+id/historyTitle"
+            app:layout_constraintBottom_toTopOf="@+id/clearHistoryButton"
             tools:listitem="@layout/item_track"/>
 
         <Button
@@ -103,14 +107,16 @@
             style="@style/Button.RetryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/history_button_top_margin"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="12dp"
             android:text="@string/clear_history"
-            android:textColor="@color/white_black"/>
-    </LinearLayout>
+            android:textColor="@color/white_black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Плейсхолдер (показывается при загрузке/ошибках) -->
+    <!-- Плейсхолдер -->
     <FrameLayout
         android:id="@+id/placeholderGroup"
         android:layout_width="match_parent"
@@ -151,7 +157,7 @@
             android:visibility="gone" />
     </FrameLayout>
 
-    <!-- RecyclerView для списка треков -->
+    <!-- Основной список треков -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tracksRecyclerView"
         android:layout_width="match_parent"

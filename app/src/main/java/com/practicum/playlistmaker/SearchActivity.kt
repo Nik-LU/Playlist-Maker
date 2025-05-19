@@ -148,6 +148,8 @@ class SearchActivity : AppCompatActivity() {
                 searchHistory.getHistory().isNotEmpty()
 
         historyContainer.isVisible = shouldShowHistory
+        placeholderGroup.isVisible = false
+        recyclerView.isVisible = !shouldShowHistory
 
         if (shouldShowHistory) {
             historyAdapter.updateTracks(searchHistory.getHistory())
@@ -163,6 +165,7 @@ class SearchActivity : AppCompatActivity() {
         if (show) {
             recyclerView.isVisible = false
             placeholderGroup.isVisible = true
+            historyContainer.isVisible = false // Добавлено
             messageRes?.let { placeholderText.setText(it) }
 
             when (messageRes) {
