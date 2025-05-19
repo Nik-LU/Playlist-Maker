@@ -34,12 +34,17 @@ class SearchActivity : AppCompatActivity() {
     private lateinit var searchEditText: EditText
     private lateinit var clearButton: ImageButton
     private lateinit var recyclerView: RecyclerView
+    private lateinit var historyRecyclerView: RecyclerView
     private lateinit var searchContainer: MaterialCardView
     private lateinit var placeholderGroup: View
     private lateinit var placeholderIcon: ImageView
     private lateinit var placeholderText: TextView
     private lateinit var retryButton: Button
+    private lateinit var clearHistoryButton: Button
+    private lateinit var historyContainer: View
     private lateinit var adapter: TrackAdapter
+    private lateinit var historyAdapter: TrackAdapter
+    private lateinit var searchHistory: SearchHistory
     private var currentSearchText = ""
 
     private val retrofit = Retrofit.Builder()
@@ -54,6 +59,7 @@ class SearchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_search)
 
         initViews()
+        setupSearchHistory()
         setupSearchField()
         initRecyclerView()
         checkNetworkState()
@@ -63,11 +69,14 @@ class SearchActivity : AppCompatActivity() {
         searchEditText = findViewById(R.id.searchEditText)
         clearButton = findViewById(R.id.clearButton)
         recyclerView = findViewById(R.id.tracksRecyclerView)
+        historyRecyclerView = findViewById(R.id.historyRecyclerView)
         searchContainer = findViewById(R.id.searchContainer)
         placeholderGroup = findViewById(R.id.placeholderGroup)
         placeholderIcon = findViewById(R.id.placeholderIcon)
         placeholderText = findViewById(R.id.placeholderText)
         retryButton = findViewById(R.id.retryButton)
+        clearHistoryButton = findViewById(R.id.clearHistoryButton)
+        historyContainer = findViewById(R.id.historyContainer)
 
         findViewById<TextView>(R.id.searchTitle).apply {
             setOnClickListener { finish() }
@@ -79,12 +88,30 @@ class SearchActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupSearchHistory() {
+        searchHistory = SearchHistory(getSharedPreferences("search_prefs", Context.MODE_PRIVATE))
+        clearHistoryButton.setOnClickListener {
+            searchHistory.clearHistory()
+            updateHistoryVisibility()
+        }
+    }
+
     private fun initRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(this)
+        historyRecyclerView.layoutManager = LinearLayoutManager(this)
+
         adapter = TrackAdapter(emptyList()) { track ->
-            // Обработка клика по треку
+            searchHistory.addTrack(track)
+            updateHistoryVisibility()
         }
+
+        historyAdapter = TrackAdapter(emptyList()) { track ->
+            searchHistory.addTrack(track)
+            updateHistoryVisibility()
+        }
+
         recyclerView.adapter = adapter
+        historyRecyclerView.adapter = historyAdapter
     }
 
     private fun performSearch(query: String) {
@@ -99,6 +126,7 @@ class SearchActivity : AppCompatActivity() {
                     if (tracks.isNotEmpty()) {
                         adapter.updateTracks(tracks)
                         showPlaceholder(false)
+                        historyContainer.isVisible = false
                     } else {
                         showPlaceholder(true, R.string.nothing_found)
                     }
@@ -114,6 +142,20 @@ class SearchActivity : AppCompatActivity() {
         })
     }
 
+    private fun updateHistoryVisibility() {
+        val shouldShowHistory = searchEditText.text.isEmpty() &&
+                searchEditText.hasFocus() &&
+                searchHistory.getHistory().isNotEmpty()
+
+        historyContainer.isVisible = shouldShowHistory
+        placeholderGroup.isVisible = false
+        recyclerView.isVisible = !shouldShowHistory
+
+        if (shouldShowHistory) {
+            historyAdapter.updateTracks(searchHistory.getHistory())
+        }
+    }
+
     private fun showLoading(show: Boolean) {
         recyclerView.isVisible = !show
         searchEditText.isEnabled = !show
@@ -123,9 +165,9 @@ class SearchActivity : AppCompatActivity() {
         if (show) {
             recyclerView.isVisible = false
             placeholderGroup.isVisible = true
+            historyContainer.isVisible = false // Добавлено
             messageRes?.let { placeholderText.setText(it) }
 
-            // Устанавливаем соответствующую иконку
             when (messageRes) {
                 R.string.nothing_found -> placeholderIcon.setImageResource(R.drawable.ic_no_search)
                 else -> placeholderIcon.setImageResource(R.drawable.ic_no_network)
@@ -156,9 +198,14 @@ class SearchActivity : AppCompatActivity() {
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     clearButton.isVisible = !s.isNullOrEmpty()
                     currentSearchText = s?.toString() ?: ""
+                    updateHistoryVisibility()
                 }
                 override fun afterTextChanged(s: Editable?) {}
             })
+
+            setOnFocusChangeListener { _, hasFocus ->
+                updateHistoryVisibility()
+            }
         }
 
         clearButton.setOnClickListener {
@@ -167,6 +214,7 @@ class SearchActivity : AppCompatActivity() {
             hideKeyboard()
             adapter.updateTracks(emptyList())
             showPlaceholder(false)
+            updateHistoryVisibility()
         }
     }
 
@@ -174,6 +222,7 @@ class SearchActivity : AppCompatActivity() {
         val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val isConnected = connectivityManager.activeNetworkInfo?.isConnectedOrConnecting == true
         adapter.setNetworkAvailable(isConnected)
+        historyAdapter.setNetworkAvailable(isConnected)
 
         if (!isConnected) {
             showPlaceholder(true, R.string.network_error, true)
@@ -199,5 +248,6 @@ class SearchActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         checkNetworkState()
+        updateHistoryVisibility()
     }
 }

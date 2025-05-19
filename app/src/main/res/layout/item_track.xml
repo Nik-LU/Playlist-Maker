@@ -46,7 +46,7 @@
             android:minHeight="@dimen/track_artist_min_height"
             android:gravity="center_vertical">
 
-            <!-- Исполнитель -->
+            <!-- Исполнитель с динамической шириной -->
             <TextView
                 android:id="@+id/artistName"
                 style="@style/TextAppearance.TrackSubtitle"
@@ -54,7 +54,8 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:includeFontPadding="false"/>
+                android:includeFontPadding="false"
+                android:maxWidth="260dp"/>
 
             <!-- Разделитель -->
             <TextView
@@ -74,6 +75,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:includeFontPadding="false"/>
+
+            <!-- Гибкое пространство -->
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
 

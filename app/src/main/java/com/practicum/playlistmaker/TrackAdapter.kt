@@ -56,7 +56,9 @@ class TrackAdapter(
                 trackCover.setImageResource(R.drawable.ic_placeholder)
             }
 
-            itemView.setOnClickListener { onItemClick(track) }
+            itemView.setOnClickListener {
+                onItemClick(track) // Передаём трек в историю при клике
+            }
         }
     }
 
